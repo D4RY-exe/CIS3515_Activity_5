@@ -6,20 +6,23 @@ import android.widget.BaseAdapter
 
 class TextSizeAdapter : BaseAdapter() {
 
-    override fun getCount(): Int {
-        TODO("Not yet implemented")
+    override fun getCount() = numbers.size
     }
 
-    override fun getItem(position: Int): Any {
-        TODO("Not yet implemented")
+    override fun getItem(position: Int) = numbers[position]
     }
 
-    override fun getItemId(position: Int): Long {
-        TODO("Not yet implemented")
+    override fun getItemId(position: Int) = position.toLong()
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        TODO("Not yet implemented")
+        val textView - TextView(c)
+        textView.text = numbers[position].toString()
+        return textView
     }
-
+    override fun getDropDownView(position: Int, convertView: View? parent: ViewGroup?): View {
+        val textView = (getView(position, convertView, parent) as TextView)
+        textView.textSize = numbers[position]
+        return textView
+    }
 }
